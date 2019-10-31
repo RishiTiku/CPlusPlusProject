@@ -24,8 +24,8 @@ class Person
 	public:
 		int seniorCitizen;
 		friend void main();
-		friend void Login();
-		Person(long a)
+		friend Person Login();
+		Person(long a = 0)
 		{
 			accountNumber = a;
 		}
@@ -68,10 +68,10 @@ class Person
 		void Input()
 		{
 			char ch;
-			cout<<"Enter Name!\n";
-			gets(name);
 			cout<<"Enter Amount!\n";
 			cin>>amount;
+			cout<<"Enter Name!\n";
+			gets(name);
 			cout<<"Enter Home Address!\n";
 			gets(address);
 			cout<<"Senior Citizen?(y/n)\n";
@@ -135,9 +135,9 @@ class Person
 		}
 		void Display()
 		{
+			cout<<"Account Number:\t"<<accountNumber<<endl;
 			cout<<"Name:\t";
 			puts(name);
-			cout<<"Account Number:\t"<<accountNumber<<endl;
 			cout<<"Rate:\t"<<Rate()<<endl;
 			if(Priority()==1)
 				cout<<"Priority Account!\n";
@@ -209,7 +209,7 @@ class ATM
 
 void MiniStatement(Person P)
 {
-	P1.Display();
+	P.Display();
 }
 void init()
 {
@@ -245,29 +245,29 @@ void  Withdraw(Person P)
 			atm.Withdraw(sub);
 			P.Withdraw(sub);
 			atm.Update(2);
-			Update(P);
-			return
+			//Update(P);
+			return;
 		}
-}
 }//*****************************************************************
 Person Login()
 {
-	int accn, char p[4];
-	Person P(0);
-	ifstream fin("Records.dat",ios::in|ios::binary)
+	int accn; char p[4];
+	Person P, P1(-2);
+	ifstream fin("Records.dat",ios::in|ios::binary);
 	if(fin)
 	{
 		cout<<"Welcome to the ATM!\n";
 		cout<<"Enter Your Account Number\n";
 		cin>>accn;
-		if(accno==-1)
+		if(accn==-1)
 		{
-			system.exit(0);
+			exit(0);
 		}
+		fin.seekg(0);
 		while(!fin.eof())
 		{
 			fin.read((char*) &P, sizeof(P));
-			if(P.AccountNumber()==accno)
+			if(P.accountNumber==accn)
 			{
 				cout<<"Welcome ";
 				puts(P.name);
@@ -281,9 +281,10 @@ Person Login()
 				else
 					cout<<"Incorrect Password.\n";
 				//Forgot password
-				P.accountNumber = 0
-				return P;
+				return P1;
 			}
+			else
+				continue;
 		}
 		cout<<"Bad Account number!\n";
 		return P;
@@ -316,16 +317,28 @@ void ReadRecords()
 void main()
 {
 	int choice = 0, acc=0;
+	clrscr();
 	char ch = getch();
 	if(ch=='&')
-		{
+		{       do{
+			AddRecords();
+			cout<<"Do you wish to continue adding records?(y/n)\n";
+			cin>>ch;
+			}while(ch=='Y'||ch=='y');
+			cout<<"Read Records:\n";
+			ReadRecords();
 			getch();
 		}
 	else
 	{
 	welcome:
 	Person P = Login();
-	if(P.accountNumber!=0)
+	if(P.accountNumber==-2)
+	{
+		cout<<"Bad Account Number!\n";
+		goto welcome;
+	}
+	else
 	{
 		do
 		{
@@ -353,9 +366,6 @@ void main()
 			//case 9009:break;
 		}
 	}
-	else
-	goto welcome;
-	}
 	getch();
-
+	}
 }
