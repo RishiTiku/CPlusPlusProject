@@ -1,0 +1,28 @@
+ has requested for a ChequeBook on Sun Nov 17 16:07:37 2019
+
+ has requested for a PassBook on Sun Nov 17 16:07:50 2019
+
+ has requested for a change in Address on Sun Nov 17 16:21:32 2019
+
+ has requested for a change in Address on Sun Nov 17 16:22:36 2019
+
+ has requested for a change in Address on Sun Nov 17 16:24:00 2019
+
+ withdrew 1000 Rupees on Mon Nov 18 18:56:05 2019
+
+ transferred 1200 Rupees to Sunil Tiku on Mon Nov 18 18:58:31 2019
+
+ recieved 1200 Rupees from Rishi Tiku on Mon Nov 18 18:58:31 2019
+
+ has requested for a ChequeBook on Mon Nov 18 19:00:12 2019
+
+ has requested for a Credit Card on Mon Nov 18 19:00:25 2019
+
+ has requested for a PassBook on Mon Nov 18 19:00:35 2019
+
+ has requested for a Loan on Mon Nov 18 19:00:42 2019
+
+ has requested for a change in Address on Mon Nov 18 19:01:13 2019
+
+ has requested for a change in Address on Mon Nov 18 19:01:50 2019
+
